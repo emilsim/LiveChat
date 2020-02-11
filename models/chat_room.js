@@ -6,6 +6,7 @@ module.exports = (sequelize, type) => {
             autoIncrement: true
         },
         title: type.STRING,
+        address: type.STRING,
         date: type.DATE,
         isLocal: type.BOOLEAN
     })
