@@ -22,15 +22,11 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
 });
-
 app.options('*', cors())
 app.use(cookieParser());
 
-
 app.use('/api/login', loginRouter);
-
 app.use('/api/user', registerRouter);
-
 app.use('/api/chat', withAuth, chatRouter);
 
 const users = {};
@@ -40,7 +36,7 @@ app.get('/api/users', withAuth, function (req, res) {
 
 let server = app.listen(8080);
 
-// socketio
+// Socket.io
 const io = socket(server);
 io.on("connection", socket => {
     console.log("New client connected");
